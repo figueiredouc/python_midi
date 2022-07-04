@@ -2,6 +2,7 @@ from midiutil.MidiFile import MIDIFile
 from note import Note
 from data_notes import *
 from chord import *
+from progression import *
 
 # create your MIDI object
 mf = MIDIFile(1)     # only 1 track
@@ -35,10 +36,11 @@ volume = 100
 # note_d0 = Note(DataNote("d",0).pitch(),time=0.5,duration= 4)
 # note_e0 = Note(DataNote("e",0).pitch(),time=1,duration= 4)
 
-c_major_chod = Chord("c").major()
+progression = Progression("c").p1()
 
-for note in c_major_chod:
-	mf.addNote(track, channel, note.pitch, note.time, note.duration, volume)
+for chord in progression:
+	for note in chord:
+		mf.addNote(track, channel, note.pitch, note.time, note.duration, volume)
 
 
 
