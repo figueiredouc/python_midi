@@ -1,6 +1,7 @@
 from midiutil.MidiFile import MIDIFile
 from note import Note
 from data_notes import *
+from chord import *
 
 # create your MIDI object
 mf = MIDIFile(1)     # only 1 track
@@ -30,16 +31,26 @@ volume = 100
 # mf.addNote(track, channel, pitch, time, duration, volume)
 
 
-aa =DataNote("c",0)
+# note_c0 = Note(DataNote("c",0).pitch(),time=0,duration= 4)
+# note_d0 = Note(DataNote("d",0).pitch(),time=0.5,duration= 4)
+# note_e0 = Note(DataNote("e",0).pitch(),time=1,duration= 4)
 
-print(aa.pitch())
+c_major_chod = Chord("c").major()
+
+for note in c_major_chod:
+	mf.addNote(track, channel, note.pitch, note.time, note.duration, volume)
 
 
-# c = Note(DataNote("c",1).pitch,0,1)
-# mf.addNote(track, channel, c.pitch, c.time, c.duration, volume)
 
-# # write it to disk
-# with open("output.mid", 'wb') as outf:
-#     mf.writeFile(outf)
+# mf.addNote(track, channel, note_c0.pitch, note_c0.time, note_c0.duration, volume)
+# mf.addNote(track, channel, note_d0.pitch, note_d0.time, note_d0.duration, volume)
+# mf.addNote(track, channel, note_e0.pitch, note_e0.time, note_e0.duration, volume)
 
+
+# write it to disk
+with open("output.mid", 'wb') as outf:
+    mf.writeFile(outf)
+
+
+ 
         

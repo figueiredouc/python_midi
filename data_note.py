@@ -10,7 +10,7 @@ class DataNote(object):
         "g": 67,
     }
     """docstring for note"""
-    def __init__(self, note, octave):
+    def __init__(self, note, octave=0):
         self.pitch = data[note] * (12*octave) #note
-        self.octave = time #start at beat
+        self.octave = time #octave
         
