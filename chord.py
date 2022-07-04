@@ -14,6 +14,14 @@ class Chord(object):
         for step in rule:
             chord.append(Note(DataNote(self.root,0).pitch() + step,time = self.time))
         return chord
+    
+    def minor(self):
+        rule = [0,3,7]
+        chord = []
+        for step in rule:
+            chord.append(Note(DataNote(self.root,0).pitch() + step,time = self.time))
+        return chord
+
 
 
 
